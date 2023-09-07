@@ -70,7 +70,7 @@ class _DespesasState extends State<Despesas> {
     final width = MediaQuery.of(context).size.width;
 
     Widget mainContent = const Center(
-      child: Text('Despesas não encontradas. Comece a adiconar!'),
+      child: Text('Não há despesas registradas!'),
     );
 
     if (_registredExpenses.isNotEmpty) {
@@ -81,13 +81,12 @@ class _DespesasState extends State<Despesas> {
     }
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Painel de despesas [Flutter]'),
-          actions: [
-            IconButton(
-              onPressed: _openAddExpenseOverlay,
-              icon: const Icon(Icons.add),
-            )
-          ],
+          centerTitle: true,
+          title: const Text('PAINEL DE DESPESAS'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _openAddExpenseOverlay,
+          child: const Icon(Icons.add),
         ),
         body: width < 600
             ? Column(
